@@ -33,23 +33,26 @@ T finite_difference_seq_impl(xt::xtensor_fixed<T, xt::xshape<nn,nn>> &u) {
     T err = 0.;
     for (auto i=0; i<num; ++i) {
         for (auto j=0; j<num; ++j) {
-            const auto tmp = u(j,i) - u_old(j,i);
+            const auto tmp = u(i,j) - u_old(i,j);
             err += tmp*tmp;
         }
     }
     return std::sqrt(err);
 
     // SIMD impl - not used to be fair with armadillo
-    // xsimd::batch<T, xsimd::simd_type<T>::size> vec_err(T(0));
-    // T err = 0;
+    // using xsimd::load_unaligned;
     // constexpr std::size_t simd_size = xsimd::simd_type<T>::size;
+    // const T* u_data = u.data();
+    // const T* u_old_data = u_old.data();
+    // xsimd::batch<T, simd_size> vec_err(T(0));
+    // T err = 0;
     // for(std::size_t i = 0; i < num; ++i) {
     //     std::size_t j = 0;
     //     for(; j < num; j += simd_size) {
-    //         auto u_vec     = xsimd::load_unaligned(&u.data()[i*num+j]);
-    //         auto u_old_vec = xsimd::load_unaligned(&u_old.data()[i*num+j]);
-    //         xsimd::batch<T, xsimd::simd_type<T>::size> diff = u_vec - u_old_vec;
-    //         vec_err += diff*diff;
+    //         auto u_vec     = load_unaligned(&u_data[i*num+j]);
+    //         auto u_old_vec = load_unaligned(&u_old_data[i*num+j]);
+    //         xsimd::batch<T, simd_size> diff = u_vec - u_old_vec;
+    //         vec_err = xsimd::fma(diff,diff,vec_err);
     //     }
     //     for(; j < num; ++j) {
     //         auto diff = u(i,j) - u_old(i,j);
