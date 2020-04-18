@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 plt.rcdefaults()
 
 
+# eigen/blaze/fastor/armadillo/xtensor
+
 # double 100
 # 0.13622926
 # 0.1312754
@@ -83,8 +85,8 @@ def main():
     plt.bar(y_pos, performance, align='center', alpha=0.5)
     plt.xticks(y_pos, objects)
     plt.ylabel('Time in seconds')
-    # plt.title('Performance of views')
-    plt.title('Compilation time of views')
+    plt.title('Performance of views')
+    # plt.title('Compilation time of views')
     plt.grid(True)
 
     plt.show()

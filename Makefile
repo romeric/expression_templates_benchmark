@@ -74,8 +74,8 @@ run:
 # 	./out_fvec.exe $(N)
 	./out_cpp_eigen.exe $(N)
 	./out_cpp_blaze.exe $(N)
-	./out_cpp_armadillo.exe $(N)
 	./out_cpp_fastor.exe $(N)
+	./out_cpp_armadillo.exe $(N)
 	./out_cpp_xtensor.exe $(N)
 
 clean:

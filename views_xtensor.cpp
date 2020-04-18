@@ -1,12 +1,10 @@
 #include "helper.h"
-#include <xtensor/xarray.hpp>
-#include <xtensor/xtensor.hpp>
-#include <xtensor/xio.hpp>
-#include <xtensor/xview.hpp>
-#include <xtensor/xfixed.hpp>
-#include <xtensor-blas/xlinalg.hpp>
-#include <xtensor/xnorm.hpp>
 #include <xsimd/xsimd.hpp>
+#include <xtensor/xtensor.hpp>
+#include <xtensor/xfixed.hpp>
+#include <xtensor/xview.hpp>
+#include <xtensor/xnorm.hpp>
+#include <xtensor-blas/xlinalg.hpp>
 
 using namespace bench_views;
 
