@@ -8,18 +8,18 @@ CXXFLAGS = -std=c++14 $(OPT) -march=native -funroll-loops -DNDEBUG  $(INC)
 
 # INCLUDE PATHS AND PACKAGE SPECIFIC FLAGS
 # ------------------------------------------------------------------------------------ #
-EIGENROOT = /Users/roman/Downloads/eigen-master/
+EIGENROOT = /Users/roman/Downloads/eigen-master
 
-BLAZEROOT = /Users/roman/Downloads/blaze-3.7/
+BLAZEROOT = /Users/roman/Downloads/blaze-3.7
 
-ARMAROOT = /Users/roman/Downloads/armadillo-9.850.1/include/
+ARMAROOT = /Users/roman/Downloads/armadillo-9.850.1
 ARMA_FLAGS = -DARMA_NO_DEBUG -lblas -llapack
 
-XSIMDROOT = /Users/roman/Downloads/xsimd/include/
-XTLROOT = /Users/roman/Downloads/xtl/include/
-XTENSORROOT = /Users/roman/Downloads/xtensor/include/
-XTENSORBLASROOT = /Users/roman/Downloads/xtensor-blas/include/
-XTENSOR_FLAGS = -I$(XSIMDROOT) -I$(XTLROOT) -I$(XTENSORROOT) -I$(XTENSORBLASROOT)
+XSIMDROOT = /Users/roman/Downloads/xsimd
+XTLROOT = /Users/roman/Downloads/xtl
+XTENSORROOT = /Users/roman/Downloads/xtensor
+XTENSORBLASROOT = /Users/roman/Downloads/xtensor-blas
+XTENSOR_FLAGS = -I$(XSIMDROOT)/include/ -I$(XTLROOT)/include/ -I$(XTENSORROOT)/include/ -I$(XTENSORBLASROOT)/include/
 XTENSOR_FLAGS += -DXTENSOR_USE_XSIMD -lblas -llapack
 
 FASTORROOT = /Users/roman/Dropbox/zHandies_Docs/Fastor/
@@ -65,7 +65,7 @@ all:
 	$(CXX) views_eigen.cpp -o out_cpp_eigen.exe $(CXXFLAGS) -I$(EIGENROOT)
 	$(CXX) views_blaze.cpp -o out_cpp_blaze.exe $(CXXFLAGS) -I$(BLAZEROOT)
 	$(CXX) views_fastor.cpp -o out_cpp_fastor.exe $(CXXFLAGS) -I$(FASTORROOT) $(FASTOR_FLAGS)
-	$(CXX) views_armadillo.cpp -o out_cpp_armadillo.exe $(CXXFLAGS) -I$(ARMAROOT) $(ARMA_FLAGS)
+	$(CXX) views_armadillo.cpp -o out_cpp_armadillo.exe $(CXXFLAGS) -I$(ARMAROOT)/include/ $(ARMA_FLAGS)
 	$(CXX) views_xtensor.cpp -o out_cpp_xtensor.exe $(CXXFLAGS) $(XTENSOR_INC) $(XTENSOR_FLAGS)
 
 run:
