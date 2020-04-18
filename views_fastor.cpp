@@ -60,14 +60,14 @@ void run_finite_difference() {
         iter++;
     }
 
-    println(" Relative error is: ", err, '\n');
-    println("Number of iterations: ", iter, '\n');
+    bench_views::println(" Relative error is: ", err, '\n');
+    bench_views::println("Number of iterations: ", iter, '\n');
 
 }
 
 int main(int argc, char *argv[]) {
 
-    using T = float;
+    using T = double;
     int N;
     if (argc == 2) {
        N = atoi(argv[1]);

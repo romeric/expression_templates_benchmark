@@ -102,7 +102,7 @@ void run_finite_difference() {
 
 int main(int argc, char *argv[]) {
 
-    using T = float;
+    using T = double;
     int N;
     if (argc == 2) {
        N = atoi(argv[1]);
