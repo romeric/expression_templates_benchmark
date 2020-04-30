@@ -23,7 +23,7 @@ XTENSOR_FLAGS = -I$(XSIMDROOT)/include/ -I$(XTLROOT)/include/ -I$(XTENSORROOT)/i
 XTENSOR_FLAGS += -DXTENSOR_USE_XSIMD -lblas -llapack
 
 FASTORROOT = /Users/roman/Dropbox/zHandies_Docs/Fastor/
-FASTOR_FLAGS = -DFASTOR_NO_ALIAS -DFASTOR_USE_VECTORISED_EXPR_ASSIGN -DFASTOR_DISPATCH_DIV_TO_MUL_EXPR
+FASTOR_FLAGS = -DFASTOR_NO_ALIAS -DFASTOR_DISPATCH_DIV_TO_MUL_EXPR
 # ------------------------------------------------------------------------------------ #
 
 

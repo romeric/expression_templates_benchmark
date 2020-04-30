@@ -46,13 +46,10 @@ void run_finite_difference() {
     }
 
     Tensor<T,num,num> u; u.zeros();
-#if defined(USE_SEQ_ALIAS) || defined(USE_SEQ_NOALIAS)
     u(0,all) = sin(x);
     u(num-1,all) = sin(x)*std::exp(-pi);
-#else
-    u(fseq<0,1>(),fall) = sin(x);
-    u(fseq<num-1,num>(),fall) = sin(x)*std::exp(-pi);
-#endif
+    // u(fix<0>,all) = sin(x);
+    // u(fix<num-1>,all) = sin(x)*std::exp(-pi);
 
     while (iter <100000 && err>1e-6) {
         err = finite_difference_seq_impl(u);
